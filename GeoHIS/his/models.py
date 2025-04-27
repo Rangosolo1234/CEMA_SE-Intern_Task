@@ -11,10 +11,18 @@ class Hospital(models.Model):
     location = models.PointField()
     address = models.TextField()
 
- ==================model to register a ealth program=================
+#==================model to register a ealth program=================
 class HealthProgram(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     hospitals = models.ManyToManyField(Hospital)
+
+
+#===============Doctors profile=========================================
+class DoctorProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    qualifications = models.TextField()
+    short_description = models.TextField()
+    programs_responsible = models.ManyToManyField(HealthProgram, related_name='doctors')
 
