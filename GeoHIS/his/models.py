@@ -35,3 +35,12 @@ class Client(models.Model):
     age = models.PositiveIntegerField()
     programs_joined = models.ManyToManyField(HealthProgram)
     registered_by = models.ForeignKey(DoctorProfile, null=True, blank=True, on_delete=models.SET_NULL)
+
+#================Booking session model============
+class Booking(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE)
+    is_home_visit = models.BooleanField(default=False)
+    location = models.PointField()
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    appointment_time = models.DateTimeField()
