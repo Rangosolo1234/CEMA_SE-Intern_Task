@@ -25,7 +25,7 @@ class DoctorProfile(models.Model):
     qualifications = models.TextField()
     short_description = models.TextField()
     programs_responsible = models.ManyToManyField(HealthProgram, related_name='doctors')
-
+    image = models.ImageField(upload_to='doctor_profiles/', null=True, blank=True)
 #================Client=====================
 class Client(models.Model):
     first_name = models.CharField(max_length=255)
@@ -35,6 +35,7 @@ class Client(models.Model):
     age = models.PositiveIntegerField()
     programs_joined = models.ManyToManyField(HealthProgram)
     registered_by = models.ForeignKey(DoctorProfile, null=True, blank=True, on_delete=models.SET_NULL)
+    image = models.ImageField(upload_to='client_profiles/', null=True, blank=True) 
 
 #================Booking session model============
 class Booking(models.Model):
