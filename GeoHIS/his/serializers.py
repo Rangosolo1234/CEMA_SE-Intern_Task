@@ -1,45 +1,41 @@
-from rest_framework import serializers
+# serializers.py
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 from .models import Hospital, HealthProgram, DoctorProfile, Client, Booking, BlogPost, Incidence
-from django.contrib.auth.models import User
 
-class HospitalSerializer(serializers.ModelSerializer):
+class HospitalSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = Hospital
-        fields = '__all__'
+        fields = ['id', 'name', 'address', 'location']
+        geo_field = 'location'
 
 class HealthProgramSerializer(serializers.ModelSerializer):
-    hospitals = HospitalSerializer(many=True, read_only=True)
     class Meta:
         model = HealthProgram
-        fields = '__all__'
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email']
+        fields = ['id', 'name', 'created_at']
 
 class DoctorProfileSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
     class Meta:
         model = DoctorProfile
-        fields = '__all__'
+        fields = ['user', 'short_description']
 
-class ClientSerializer(serializers.ModelSerializer):
+class ClientSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = Client
-        fields = '__all__'
+        fields = ['id', 'first_name', 'last_name', 'age', 'location']
+        geo_field = 'location'
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = '__all__'
+        fields = ['id', 'client', 'doctor', 'appointment_time', 'is_home_visit', 'cost']
 
 class BlogPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogPost
-        fields = '__all__'
+        fields = ['id', 'title', 'author', 'category', 'created_at']
 
-class IncidenceSerializer(serializers.ModelSerializer):
+class IncidenceSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = Incidence
-        fields = '__all__'
+        fields = ['id', 'program', 'reported_by', 'reported_at', 'location']
+        geo_field = 'location'
