@@ -44,3 +44,20 @@ class Booking(models.Model):
     location = models.PointField()
     cost = models.DecimalField(max_digits=10, decimal_places=2)
     appointment_time = models.DateTimeField()
+
+
+#===================Blog post model================
+class BlogPost(models.Model):
+    CATEGORY_CHOICES = [
+        ('educational', 'Educational'),
+        ('inspirational', 'Inspirational'),
+        ('research', 'Research'),
+        ('incidences', 'Incidences'),
+    ]
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+    program = models.ForeignKey(HealthProgram, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
