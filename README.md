@@ -1,4 +1,4 @@
-# GeoHIS – Geographic Health Information System
+# GeoHIS – Geospatial Health Information System
 
 ![GeoHIS Banner](your-image-path.jpg)
 
