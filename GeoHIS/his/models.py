@@ -61,3 +61,10 @@ class BlogPost(models.Model):
     program = models.ForeignKey(HealthProgram, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
+#==================Model for incidence report==============
+class Incidence(models.Model):
+    program = models.ForeignKey(HealthProgram, on_delete=models.CASCADE)
+    reported_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField()
+    location = models.PointField()
+    reported_at = models.DateTimeField(auto_now_add=True)
