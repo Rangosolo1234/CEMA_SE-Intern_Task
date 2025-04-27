@@ -1,8 +1,9 @@
 # serializers.py
-from rest_framework_gis.serializers import GeoFeatureModelSerializer
+from rest_framework import serializers
+# from rest_framework_gis.serializers import GeoFeatureModelSerializer
 from .models import Hospital, HealthProgram, DoctorProfile, Client, Booking, BlogPost, Incidence
 
-class HospitalSerializer(GeoFeatureModelSerializer):
+class HospitalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hospital
         fields = ['id', 'name', 'address', 'location']
@@ -18,7 +19,7 @@ class DoctorProfileSerializer(serializers.ModelSerializer):
         model = DoctorProfile
         fields = ['user', 'short_description']
 
-class ClientSerializer(GeoFeatureModelSerializer):
+class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = ['id', 'first_name', 'last_name', 'age', 'location']
@@ -34,7 +35,7 @@ class BlogPostSerializer(serializers.ModelSerializer):
         model = BlogPost
         fields = ['id', 'title', 'author', 'category', 'created_at']
 
-class IncidenceSerializer(GeoFeatureModelSerializer):
+class IncidenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Incidence
         fields = ['id', 'program', 'reported_by', 'reported_at', 'location']
