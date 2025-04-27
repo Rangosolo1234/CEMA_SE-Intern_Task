@@ -1,11 +1,11 @@
-from rest_framework_gis.viewsets import GeoModelViewSet
+from rest_framework import viewsets
 from .models import *
 from .serializers import *
 
 # Create your views here.
 
 #===============view for hospitals =============
-class HospitalViewSet(GeoModelViewSet):
+class HospitalViewSet(viewsets.ModelViewSet):
     queryset = Hospital.objects.all()
     serializer_class = HospitalSerializer
 
@@ -20,7 +20,7 @@ class DoctorProfileViewSet(viewsets.ModelViewSet):
     serializer_class = DoctorProfileSerializer
 
 #=========== View for clients profies==============
-class ClientViewSet(GeoModelViewSet):
+class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
 
@@ -35,6 +35,6 @@ class BlogPostViewSet(viewsets.ModelViewSet):
     serializer_class = BlogPostSerializer
 
 #===================view for incidences==============
-class IncidenceViewSet(GeoModelViewSet):
+class IncidenceViewSet(viewsets.ModelViewSet):
     queryset = Incidence.objects.all()
     serializer_class = IncidenceSerializer
