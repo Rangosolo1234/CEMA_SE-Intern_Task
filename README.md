@@ -4,7 +4,7 @@
 
 ## Overview
 
-**GeoHIS** is a robust, modern Health Information System (HIS) built with Django and advanced GIS (Geographic Information System) capabilities. It empowers organizations to manage, visualize, and analyze health data spatially, enabling smarter healthcare decisions and resource allocation.
+**GeoHIS** is a robust, modern Health Information System (HIS) built with Django. It empowers organizations to manage, visualize, and analyze health data spatially enabling smarter healthcare decisions and resource allocation.
 
 GeoHIS combines the power of **Django**, **PostGIS**, and **Leaflet** to deliver a scalable, secure, and extensible platform for healthcare data management, spatial analytics, and RESTful API integrations.
 
@@ -13,8 +13,8 @@ GeoHIS combines the power of **Django**, **PostGIS**, and **Leaflet** to deliver
 ## ✨ Features
 
 - **Spatial Data Management:** Store, query, and visualize geographic health data (hospitals, clients, incidences, etc.) using PostGIS and GeoDjango.
-- **RESTful API:** Robust, flexible API powered by Django REST Framework and DRF-GIS, supporting GeoJSON for spatial data.
-- **Interactive Maps:** Seamless Leaflet integration for dynamic, real-time map visualizations.
+- **RESTful API:** Robust, flexible API powered by Django REST Framework
+- **Interactive Maps:** Seamless Leaflet integration for dynamic, real-time map visualizaTIONS
 - **Modular Architecture:** Clean separation of concerns with reusable Django apps and serializers.
 - **Secure & Extensible:** Ready for production with best practices for security, authentication, and environment management.
 - **Admin Interface:** Powerful Django admin for managing all health data models.
@@ -77,7 +77,6 @@ Visit [http://localhost:8000/api/](http://localhost:8000/api/) to explore the AP
 - **Environment Variables:** All sensitive data and keys are managed via `.env`.
 - **Authentication:** Ready for JWT, token, or session-based authentication.
 - **CORS:** Configured for safe cross-origin requests.
-- **Production Ready:** Disable debug, secure secret keys, and use HTTPS in production.
 
 ---
 
