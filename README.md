@@ -114,15 +114,3 @@ All dependencies are listed in `requirements.txt`. Key packages include:
 ---
 
 ## 💡 Screenshots
-![clientsapi](https://github.com/user-attachments/assets/614f5917-775f-4aa2-8844-334b19fdbc8a)
-
-
----
-
-## 📬 Contact
-
-For questions, suggestions, or contributions, open an issue or contact [your-email@example.com](mailto:your-email@example.com).
-
----
-
-> **GeoHIS** – Empowering smarter, spatially-driven healthcare decisions!
